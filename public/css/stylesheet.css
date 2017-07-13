@@ -3,7 +3,7 @@ td {
     color: red;
 }
 
-.container{
+.gameBoard{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -12,4 +12,21 @@ td {
 
 .history {
     
+}
+
+.tiles {
+	display: inline-block;
+	align-content: center;
+	justify-content: center;
+	height: 100px;
+	width: 15%;
+	background: #6786ca;
+	text-align: center;
+	margin: 5px;
+	padding: 13px;
+	box-shadow: 10px 10px 25px 15px black;
+	border-radius: 5px;
+	font-size: 1.25em;
+	font-weight: bold;
+	transition: 2.5s;
 }
