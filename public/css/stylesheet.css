@@ -1,0 +1,15 @@
+td {
+    padding: 10px;
+    color: red;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+}
+
+.history {
+    
+}
