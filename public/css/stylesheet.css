@@ -1,8 +1,9 @@
-td {
-    padding: 10px;
-    color: red;
+body {
+    margin: 0;
+	margin-bottom: 100px;
+	font-family: helvetica;
+	text-align: center;
 }
-
 .gameBoard{
     display: flex;
     justify-content: center;
@@ -24,9 +25,16 @@ td {
 	text-align: center;
 	margin: 5px;
 	padding: 13px;
-	box-shadow: 10px 10px 25px 15px black;
 	border-radius: 5px;
 	font-size: 1.25em;
 	font-weight: bold;
 	transition: 2.5s;
+}
+
+#catagories {
+	display: flex;
+	justify-content: space-around;
+	align-content: center;
+	margin: 20px 40px;
+	padding-bottom: 40px;
 }
