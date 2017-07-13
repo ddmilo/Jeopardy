@@ -1,34 +1,32 @@
-
-
 var questions = [{
     question: 'What does HTML stand for?',
-    answer : 'hyper text markup language',
+    answer: 'hyper text markup language',
     points: 100
-},
-    {
+  },
+  {
     question: 'What is the capital of Georgia',
-    answer : 'atlanta',
+    answer: 'atlanta',
     points: 100
-    
-},
-    {
+
+  },
+  {
     question: 'Which celebrity is known for their loud, colorful, one-liners?',
-    answer : 'samuel l. jackson',
+    answer: 'samuel l. jackson',
     points: 100
-    
-},
-    {
+
+  },
+  {
     question: 'What is the baby\'s name on Family Guy? ',
-    answer : 'stewie',
+    answer: 'stewie',
     points: 100
-    
-},
-    {
+
+  },
+  {
     question: 'Why do this project?',
-    answer : 'boredom',
+    answer: 'boredom',
     points: 100
-    
-}
+
+  }
 
 ];
 
@@ -36,45 +34,27 @@ var questions = [{
 
 var playerScore = 0;
 
-for(i=0; i < questions.length; i++){
-    var tile = document.createElement('tiles');
-    tile.className = 'tiles';
-    tile.innerHTML = questions[i].points;
-    tile.setAttribute("question", questions[i].question);
-	tile.setAttribute("answer", questions[i].answer);
-	tile.setAttribute("points", questions[i].points);
-    document.body.appendChild(tile);
+for (i = 0; i < questions.length; i++) {
+  var tile = document.createElement('tiles');
+  tile.className = 'tiles';
+  tile.innerHTML = questions[i].points;
+  tile.setAttribute("question", questions[i].question);
+  tile.setAttribute("answer", questions[i].answer);
+  tile.setAttribute("points", questions[i].points);
+  document.body.appendChild(tile);
 }
 
 
-
-
-
-
-// function whenClicked(){
-//     var userInput = prompt(this.getAttribute("question")).toLowerCase;
-//     if (userInput === questions.answer){
-//         alert('correct');
-//         playerScore += questions.points;
-//         updateCashBet();
-//     }
-//     else {
-//         alert('wrong');
-//         playerScore -= questions.points;
-//         updateCashBet();
-//     }
-// }
-
-function resetScore(){
-    playerScore = 0;
-    updatePlayerScore();
+function resetScore() {
+  playerScore = 0;
+  updatePlayerScore();
 }
-   
-function winLose(playerScore){
-    if (playerScore >= 500) {
-        alert("You Win!"); 
-        resetScore(); 
-    }
+
+function winLose(playerScore) {
+  if (playerScore >= 500) {
+    alert("You Win!");
+    resetScore();
+  }
 }
 
 
@@ -83,22 +63,19 @@ function updatePlayerScore() {
 }
 
 
-// console.log(questionsAnswers[0].answer);
 
-
-$('.tiles').click(function(){
-     var userInput = prompt(this.getAttribute("question"));
-     var anyCase = userInput.toLowerCase();
-     var points = this.getAttribute("points");
-     if (anyCase === this.getAttribute("answer")){
-        alert('correct');
-        playerScore += parseInt(points);
-        updatePlayerScore();
-    }
-    else {
-        alert('wrong');
-        playerScore -= this.getAttribute("points");
-        updatePlayerScore();
-    }
-    winLose(playerScore);
+$('.tiles').click(function () {
+  var userInput = prompt(this.getAttribute("question"));
+  var anyCase = userInput.toLowerCase();
+  var points = this.getAttribute("points");
+  if (anyCase === this.getAttribute("answer")) {
+    alert('correct');
+    playerScore += parseInt(points);
+    updatePlayerScore();
+  } else {
+    alert('wrong');
+    playerScore -= this.getAttribute("points");
+    updatePlayerScore();
+  }
+  winLose(playerScore);
 });
