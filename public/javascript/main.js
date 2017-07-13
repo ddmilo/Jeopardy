@@ -1,31 +1,31 @@
 
 
 var questions = [{
-    question: 'What does html stand for?',
+    question: 'What does HTML stand for?',
     answer : 'hyper text markup language',
     points: 100
 },
     {
-    question: 'What does CDN stand for?',
-    answer : 'cdn',
+    question: 'What is the capital of Georgia',
+    answer : 'atlanta',
     points: 100
     
 },
     {
-    question: 'What does html stand for?',
-    answer : 'Hyper Text Markup Language',
+    question: 'Which celebrity is known for their loud, colorful, one-liners?',
+    answer : 'samuel l. jackson',
     points: 100
     
 },
     {
-    question: 'What does html stand for?',
-    answer : 'Hyper Text Markup Language',
+    question: 'What is the baby\'s name on Family Guy? ',
+    answer : 'stewie',
     points: 100
     
 },
     {
-    question: 'What does html stand for?',
-    answer : 'Hyper Text Markup Language',
+    question: 'Why do this project?',
+    answer : 'boredom',
     points: 100
     
 }
@@ -64,8 +64,21 @@ for(i=0; i < questions.length; i++){
 //         updateCashBet();
 //     }
 // }
+
+function resetScore(){
+    playerScore = 0;
+    updatePlayerScore();
+}
    
-function updateCashBet() {
+function winLose(playerScore){
+    if (playerScore >= 500) {
+        alert("You Win!"); 
+        resetScore(); 
+    }
+}
+
+
+function updatePlayerScore() {
   $('#playerScore').text('Score:  ' + playerScore.toString());
 }
 
@@ -75,15 +88,17 @@ function updateCashBet() {
 
 $('.tiles').click(function(){
      var userInput = prompt(this.getAttribute("question"));
+     var anyCase = userInput.toLowerCase();
      var points = this.getAttribute("points");
-     if (userInput === this.getAttribute("answer")){
+     if (anyCase === this.getAttribute("answer")){
         alert('correct');
         playerScore += parseInt(points);
-        updateCashBet();
+        updatePlayerScore();
     }
     else {
         alert('wrong');
         playerScore -= this.getAttribute("points");
-        updateCashBet();
+        updatePlayerScore();
     }
+    winLose(playerScore);
 });
