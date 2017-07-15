@@ -64,14 +64,22 @@ function winLose(playerScore) {
 function updatePlayerScore() {
   $('#playerScore').text('Score:  ' + playerScore.toString());
 }
+$( "#target" ).submit(function() {
+  var pInput = $('#playerForm').val();
+
+  if(pInput === $('.tiles').attr("answer")){
+    console.log("true");
+  }
+  
+});
+
 
 
 
 $('.tiles').on("click", function () {
-  var $answer = $("input[id='playerForm']").val();
-  console.log($answer === this.getAttribute("answer"));
+  
   // $('.modal-header').text('Question');
-  $('.modal-body').html(this.getAttribute("question"));
+  $('.modal-body').html($('.tiles').attr("question"));
   // var userInput = prompt(this.getAttribute("question"));
   // var anyCase = userInput.toLowerCase();
   // var points = this.getAttribute("points");
