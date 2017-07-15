@@ -1,32 +1,32 @@
 var questions = [{
-    question: 'What does HTML stand for?',
+    question: 'What does HTML stand for?' ,
     answer: 'hyper text markup language',
     points: 100
-  },
-  {
-    question: 'What is the capital of Georgia',
-    answer: 'atlanta',
-    points: 100
+   }
+  // {
+  //   question: 'What is the capital of Georgia',
+  //   answer: 'atlanta',
+  //   points: 100
 
-  },
-  {
-    question: 'Which celebrity is known for their loud, colorful, one-liners?',
-    answer: 'samuel l. jackson',
-    points: 100
+  // },
+  // {
+  //   question: 'Which celebrity is known for their loud, colorful, one-liners?',
+  //   answer: 'samuel l. jackson',
+  //   points: 100
 
-  },
-  {
-    question: 'What is the baby\'s name on Family Guy? ',
-    answer: 'stewie',
-    points: 100
+  // },
+  // {
+  //   question: 'What is the baby\'s name on Family Guy? ',
+  //   answer: 'stewie',
+  //   points: 100
 
-  },
-  {
-    question: 'Why do this project?',
-    answer: 'boredom',
-    points: 100
+  // },
+  // {
+  //   question: 'Why do this project?',
+  //   answer: 'boredom',
+  //   points: 100
 
-  }
+  // }
 
 ];
 
@@ -41,7 +41,10 @@ for (i = 0; i < questions.length; i++) {
   tile.setAttribute("question", questions[i].question);
   tile.setAttribute("answer", questions[i].answer);
   tile.setAttribute("points", questions[i].points);
+  tile.setAttribute("data-toggle", "modal");
+  tile.setAttribute("data-target", "#testModal");
   document.body.appendChild(tile);
+  
 }
 
 
@@ -64,18 +67,22 @@ function updatePlayerScore() {
 
 
 
-$('.tiles').click(function () {
-  var userInput = prompt(this.getAttribute("question"));
-  var anyCase = userInput.toLowerCase();
-  var points = this.getAttribute("points");
-  if (anyCase === this.getAttribute("answer")) {
-    alert('correct');
-    playerScore += parseInt(points);
-    updatePlayerScore();
-  } else {
-    alert('wrong');
-    playerScore -= this.getAttribute("points");
-    updatePlayerScore();
-  }
-  winLose(playerScore);
+$('.tiles').on("click", function () {
+  var $answer = $("input[id='playerForm']").val();
+  console.log($answer === this.getAttribute("answer"));
+  // $('.modal-header').text('Question');
+  $('.modal-body').html(this.getAttribute("question"));
+  // var userInput = prompt(this.getAttribute("question"));
+  // var anyCase = userInput.toLowerCase();
+  // var points = this.getAttribute("points");
+  // if (anyCase === this.getAttribute("answer")) {
+  //   alert('correct');
+  //   playerScore += parseInt(points);
+  //   updatePlayerScore();
+  // } else {
+  //   alert('wrong');
+  //   playerScore -= this.getAttribute("points");
+  //   updatePlayerScore();
+  // }
+  // winLose(playerScore);
 });
